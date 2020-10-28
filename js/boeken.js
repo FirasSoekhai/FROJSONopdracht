@@ -16,6 +16,9 @@ xhr.send();
 const boeken = {
 
     taalFilter: ['Duits', 'Nederlands', 'Engels'],
+    es: 'auteur', // de eigenschap van de boeken waarop gesorteerd wordt
+    
+    // er wordt hier een eigenschop data aangemaakt (regel 24 bij het filteren)
 
     // filteren op taal
     filteren( gegevens ) {
@@ -27,11 +30,16 @@ const boeken = {
             return bool
         } )
     },
+
+    // de sorteerfunctie
     sorteren() {
-        this.data.sort( (a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1 );
+        if(this.es == 'titel') {this.data.sort( (a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1 );}
+        else if (this.es == 'paginas') {this.data.sort( (a,b) => (a.paginas > b.paginas) ? 1 : -1 );}
+        else if (this.es == 'uitgave') {this.data.sort( (a,b) => (a.uitgave > b.uitgave) ? 1 : -1 );}
+        else if (this.es == 'prijs') {this.data.sort( (a,b) => (a.prijs > b.prijs) ? 1 : -1 );}
+        else if (this.es == 'auteur') {this.data.sort( (a,b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? 1 : -1 );}
     },
 
-    // er wordt hier een eigenschop data aangemaakt (regel 7)
     uitvoeren() {
         // eerst sorteren
         this.sorteren();
