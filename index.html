@@ -24,15 +24,19 @@
         </label>
 
         <!-- mogelijkheid om te sorteren-->
-        <label class="besturing__select--label"> Sorteren op:
+        <span class="besturing__sorteren">
+            <label class="besturing__select--label"> Sorteren op:
             <select class="besturing__select">
-                <option value="titel">Titel</option>
-                <option value="auteur">Auteur</option>
-                <option value="uitgave">Uitgave</option>
-                <option value="paginas">Pagina's</option>
-                <option value="prijs">Prijs</option>
+            <option value="titel">Titel</option>
+            <option value="auteur">Auteur</option>
+            <option value="uitgave">Uitgave</option>
+            <option value="paginas">Pagina's</option>
+            <option value="prijs">Prijs</option>
             </select>
-        </label>
+            </label>
+            <label><input type="radio" name="opaf" class="besturing__rb" checked value="1">Oplopend</label>
+            <label><input type="radio" name="opaf" class="besturing__rb" value="-1">Aflopend</label>
+        </span>
     </div>
 
     <div id="boeken"></div>
