@@ -27,9 +27,16 @@ const boeken = {
             return bool
         } )
     },
+    sorteren() {
+        this.data.sort( (a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1 );
+    },
 
     // er wordt hier een eigenschop data aangemaakt (regel 7)
     uitvoeren() {
+        // eerst sorteren
+        this.sorteren();
+
+
         let html = "";
         this.data.forEach( boek => {
 
